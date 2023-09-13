@@ -35,7 +35,8 @@ def userlogin(request):
 
 @login_required(login_url='/login/')
 def dash(request):
-    return render(request ,"info.html")
+    l_user=request.user
+    return render(request ,"info.html", {"val1":l_user.id,"val2":l_user.info.name})
 
 def out(requset):
     logout(requset)
